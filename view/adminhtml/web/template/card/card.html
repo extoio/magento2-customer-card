@@ -1,0 +1,21 @@
+<!--
+/**
+ * Copyright © 2016 Exto. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<div data-bind="visible: isLoading" data-role="spinner" class="admin__data-grid-loading-mask">
+    <div class="spinner">
+        <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+</div>
+<!-- ko foreach: { data: getTabs(), as: 'tab' } -->
+<div>
+    <span data-bind="text: tab.title"></span>
+    <div>
+        <!-- ko foreach: $parent.getRegion(tab.code) -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+        <!-- /ko -->
+    </div>
+</div>
+<!-- /ko -->
