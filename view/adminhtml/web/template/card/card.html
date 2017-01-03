@@ -4,18 +4,26 @@
  * See COPYING.txt for license details.
  */
 -->
-<div data-bind="visible: isLoading" data-role="spinner" class="admin__data-grid-loading-mask">
+<div data-bind="visible: isLoading()" data-role="spinner" class="admin__data-grid-loading-mask">
     <div class="spinner">
         <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
     </div>
 </div>
-<!-- ko foreach: { data: getTabs(), as: 'tab' } -->
-<div>
-    <span data-bind="text: tab.title"></span>
+<div data-bind="visible: !isLoading()">
     <div>
-        <!-- ko foreach: $parent.getRegion(tab.code) -->
+        <!-- ko foreach: getRegion('header') -->
             <!-- ko template: getTemplate() --><!-- /ko -->
         <!-- /ko -->
     </div>
+    <!-- ko foreach: { data: getTabs(), as: 'tab' } -->
+    <div>
+        <span data-bind="text: tab.title"></span>
+        <div>
+            <!-- ko foreach: $parent.getRegion(tab.code) -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            <!-- /ko -->
+        </div>
+    </div>
+    <!-- /ko -->
 </div>
-<!-- /ko -->
+

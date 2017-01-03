@@ -1,0 +1,27 @@
+<!--
+/**
+ * Copyright © 2016 Exto. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<div>
+    <span data-bind="i18n: 'Items in wishlist:'"></span>
+    <!-- ko if: hasWishlistItems() -->
+    <ul>
+        <!-- ko foreach: { data:  getWishlistItems(), as: 'item' } -->
+        <li>
+            <a data-bind="
+                attr: {
+                    href: item.product.url
+                },
+                text: item.product.name"></a>
+            <span data-bind="text: item.qty"></span>
+            <span data-bind="text: item.added_at"></span>
+        </li>
+        <!-- /ko -->
+    </ul>
+    <!-- /ko -->
+    <!-- ko ifnot: hasWishlistItems() -->
+    <span data-bind="i18n: 'None'"></span>
+    <!-- /ko -->
+</div>

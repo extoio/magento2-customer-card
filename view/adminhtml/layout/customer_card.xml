@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Exto. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Exto\CustomerCard\Block\Adminhtml\Customer\Card"
+                   name="customer.card"
+                   template="Exto_CustomerCard::customer/card.phtml">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="customer-card-modal" xsi:type="array">
+                                <item name="component" xsi:type="string">Magento_Ui/js/modal/modal-component</item>
+                                <item name="options" xsi:type="array">
+                                    <item name="type" xsi:type="string">slide</item>
+                                </item>
+                                <item name="children" xsi:type="array">
+                                    <item name="card" xsi:type="array">
+                                        <item name="component" xsi:type="string">Exto_CustomerCard/js/card/card</item>
+                                        <item name="template" xsi:type="string">Exto_CustomerCard/card/card</item>
+                                        <item name="provider" xsi:type="string">customer-card.data.provider</item>
+                                        <item name="tabs" xsi:type="array">
+                                            <item name="0" xsi:type="array">
+                                                <item name="code" xsi:type="string">summary</item>
+                                                <item name="title" translate="true" xsi:type="string">Summary</item>
+                                            </item>
+                                            <item name="1" xsi:type="array">
+                                                <item name="code" xsi:type="string">behaviour</item>
+                                                <item name="title" translate="true" xsi:type="string">Behaviour</item>
+                                            </item>
+                                            <item name="2" xsi:type="array">
+                                                <item name="code" xsi:type="string">marketing</item>
+                                                <item name="title" translate="true" xsi:type="string">Marketing acceptance</item>
+                                            </item>
+                                            <item name="3" xsi:type="array">
+                                                <item name="code" xsi:type="string">product-history</item>
+                                                <item name="title" translate="true" xsi:type="string">Product History</item>
+                                            </item>
+                                        </item>
+                                        <item name="children" xsi:type="array">
+                                            <!-- Headers -->
+                                            <item name="header-data" xsi:type="array">
+                                                <item name="component" xsi:type="string">Exto_CustomerCard/js/card/data/header</item>
+                                                <item name="template" xsi:type="string">Exto_CustomerCard/card/header</item>
+                                                <item name="card" xsi:type="string">customer-card-modal.card</item>
+                                                <item name="displayArea" xsi:type="string">header</item>
+                                            </item>
+                                            <!-- Cards -->
+                                            <item name="sales-summary-data" xsi:type="array">
+                                                <item name="component" xsi:type="string">Exto_CustomerCard/js/card/data</item>
+                                                <item name="template" xsi:type="string">Exto_CustomerCard/card/data/sales/summary</item>
+                                                <item name="card" xsi:type="string">customer-card-modal.card</item>
+                                                <item name="displayArea" xsi:type="string">summary</item>
+                                            </item>
+                                            <item name="sales-orders-data" xsi:type="array">
+                                                <item name="component" xsi:type="string">Exto_CustomerCard/js/card/data</item>
+                                                <item name="template" xsi:type="string">Exto_CustomerCard/card/data/sales/orders</item>
+                                                <item name="card" xsi:type="string">customer-card-modal.card</item>
+                                                <item name="displayArea" xsi:type="string">summary</item>
+                                            </item>
+                                            <item name="behaviour-data" xsi:type="array">
+                                                <item name="component" xsi:type="string">Exto_CustomerCard/js/card/data</item>
+                                                <item name="template" xsi:type="string">Exto_CustomerCard/card/data/behaviour</item>
+                                                <item name="card" xsi:type="string">customer-card-modal.card</item>
+                                                <item name="displayArea" xsi:type="string">behaviour</item>
+                                            </item>
+                                            <item name="marketing-data" xsi:type="array">
+                                                <item name="component" xsi:type="string">Exto_CustomerCard/js/card/data</item>
+                                                <item name="template" xsi:type="string">Exto_CustomerCard/card/data/marketing</item>
+                                                <item name="card" xsi:type="string">customer-card-modal.card</item>
+                                                <item name="displayArea" xsi:type="string">marketing</item>
+                                            </item>
+                                            <item name="wishlist-data" xsi:type="array">
+                                                <item name="component" xsi:type="string">Exto_CustomerCard/js/card/data/wishlist</item>
+                                                <item name="template" xsi:type="string">Exto_CustomerCard/card/data/wishlist/items</item>
+                                                <item name="card" xsi:type="string">customer-card-modal.card</item>
+                                                <item name="displayArea" xsi:type="string">product-history</item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                            <item name="customer-card.data.provider" xsi:type="array">
+                                <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                                <item name="update_url" xsi:type="url" path="customer_card/card/data"/>
+                                <item name="provider" xsi:type="string">customer-card-list.provider</item>
+                                <item name="storageConfig" xsi:type="array">
+                                    <item name="cacheRequests" xsi:type="boolean">false</item>
+                                </item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

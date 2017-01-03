@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © 2016 Exto. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <columns name="customer_columns">
+        <actionsColumn name="actions">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="templates" xsi:type="array">
+                        <item name="actions" xsi:type="array">
+                            <item name="preview" xsi:type="array">
+                                <item name="label" xsi:type="string">Preview</item>
+                                <item name="callback" xsi:type="array">
+                                    <item name="provider" xsi:type="string">customer_listing.customer_listing.additional.action-preview-handler</item>
+                                    <item name="target" xsi:type="string">apply</item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </actionsColumn>
+    </columns>
+    <container name="additional">
+        <component name="action-preview-handler">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Exto_CustomerCard/js/grid/column/action-handler/card</item>
+                    <item name="modal" xsi:type="string">customer-card-modal</item>
+                    <item name="card" xsi:type="string">customer-card-modal.card</item>
+                </item>
+            </argument>
+        </component>
+    </container>
+</listing>

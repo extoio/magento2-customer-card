@@ -3,9 +3,8 @@
  * See COPYING.txt for license details.
  */
 define([
-    'ko',
     'uiComponent'
-], function (ko, Component) {
+], function (Component) {
     'use strict';
 
     return Component.extend({
@@ -17,13 +16,17 @@ define([
         },
 
         /**
-         * Open card.
+         * Apply action
+         *
+         * @param {String} action
+         * @param {String} recordId
+         * @param {Object} data
          */
-        open: function (customerId) {
-            this.modal().openModal();
+        apply: function (action, recordId, data) {
             this.card().setParams({
-                customer_id: customerId
+                customer_id: recordId
             });
+            this.modal().openModal();
         }
     });
 });

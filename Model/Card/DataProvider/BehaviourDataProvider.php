@@ -6,6 +6,7 @@
 namespace Exto\CustomerCard\Model\Card\DataProvider;
 
 use Exto\CustomerCard\Model\Card\DataProviderInterface;
+use Exto\CustomerCard\Model\Formatter\DateTimeFormatter;
 use Magento\Customer\Api\Data\CustomerInterface;
 use Magento\Customer\Model\Logger as CustomerLogger;
 
@@ -20,11 +21,20 @@ class BehaviourDataProvider implements DataProviderInterface
     private $logger;
 
     /**
-     * @param CustomerLogger $logger
+     * @var DateTimeFormatter
      */
-    public function __construct(CustomerLogger $logger)
-    {
+    private $dateTimeFormatter;
+
+    /**
+     * @param CustomerLogger $logger
+     * @param DateTimeFormatter $dateTimeFormatter
+     */
+    public function __construct(
+        CustomerLogger $logger,
+        DateTimeFormatter $dateTimeFormatter
+    ) {
         $this->logger = $logger;
+        $this->dateTimeFormatter = $dateTimeFormatter;
     }
 
     /**
@@ -34,13 +44,21 @@ class BehaviourDataProvider implements DataProviderInterface
     {
         return [
             'behaviour' => [
-                'last_visit_at' => $this->logger->get($customer->getId())->getLastVisitAt(),
-                'reviews_count' => 1,
-                'abandoned_cart' => [
-                    'total' => '1111',
-                    'items_count' => 11
-                ]
+                'last_visit_at' => $this->getLastVisitAt($customer)
             ]
         ];
+    }
+
+    /**
+     * Get last visit at.
+     *
+     * @param CustomerInterface $customer
+     * @return string
+     */
+    private function getLastVisitAt(CustomerInterface $customer)
+    {
+        $date = $this->logger->get($customer->getId())->getLastVisitAt();
+
+        return $this->dateTimeFormatter->formatMedium($date);
     }
 }

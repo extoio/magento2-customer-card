@@ -11,64 +11,18 @@
     <type name="Exto\CustomerCard\Model\Card\DataProviderInterface">
         <arguments>
             <argument name="providers" xsi:type="array">
+                <item name="general" xsi:type="object">Exto\CustomerCard\Model\Card\DataProvider\GeneralDataProvider\Proxy</item>
                 <item name="sales" xsi:type="object">Exto\CustomerCard\Model\Card\DataProvider\SalesDataProvider\Proxy</item>
-                <item name="behaviout" xsi:type="object">Exto\CustomerCard\Model\Card\DataProvider\BehaviourDataProvider\Proxy</item>
+                <item name="sales-rule" xsi:type="object">Exto\CustomerCard\Model\Card\DataProvider\SalesRuleDataProvider\Proxy</item>
+                <item name="quote" xsi:type="object">Exto\CustomerCard\Model\Card\DataProvider\QuoteDataProvider\Proxy</item>
+                <item name="review" xsi:type="object">Exto\CustomerCard\Model\Card\DataProvider\ReviewDataProvider\Proxy</item>
+                <item name="wishlist" xsi:type="object">Exto\CustomerCard\Model\Card\DataProvider\WishlistDataProvider\Proxy</item>
+                <item name="newsletter" xsi:type="object">Exto\CustomerCard\Model\Card\DataProvider\NewsletterDataProvider\Proxy</item>
+                <item name="behaviour" xsi:type="object">Exto\CustomerCard\Model\Card\DataProvider\BehaviourDataProvider\Proxy</item>
             </argument>
         </arguments>
     </type>
 
     <!-- Card js layout -->
     <preference for="Exto\CustomerCard\Model\View\JsLayoutInterface" type="Exto\CustomerCard\Model\View\JsLayout" />
-    <type name="Exto\CustomerCard\Model\View\JsLayoutInterface">
-        <arguments>
-            <argument name="processors" xsi:type="array">
-                <item name="core" xsi:type="object">Exto\CustomerCard\Model\Card\View\JsLayout\CoreProcessor\Proxy</item>
-                <item name="tabs" xsi:type="object">Exto\CustomerCard\Model\Card\View\JsLayout\TabsProcessor\Proxy</item>
-            </argument>
-            <argument name="layout" xsi:type="array">
-                <item name="components" xsi:type="array">
-                    <item name="customer-card-modal" xsi:type="array">
-                        <item name="component" xsi:type="string">Magento_Ui/js/modal/modal-component</item>
-                        <item name="options" xsi:type="array">
-                            <item name="type" xsi:type="string">slide</item>
-                        </item>
-                        <item name="children" xsi:type="array">
-                            <item name="card" xsi:type="array">
-                                <item name="component" xsi:type="string">Exto_CustomerCard/js/card/card</item>
-                                <item name="template" xsi:type="string">Exto_CustomerCard/card/card</item>
-                                <item name="provider" xsi:type="string">customer-card.data.provider</item>
-                                <item name="children" xsi:type="array">
-                                    <item name="sales-overview-data" xsi:type="array">
-                                        <item name="component" xsi:type="string">Exto_CustomerCard/js/card/data</item>
-                                        <item name="template" xsi:type="string">Exto_CustomerCard/card/data/sales/overview</item>
-                                        <item name="card" xsi:type="string">customer-card-modal.card</item>
-                                        <item name="displayArea" xsi:type="string">sales-overview</item>
-                                    </item>
-                                    <item name="behaviour-data" xsi:type="array">
-                                        <item name="component" xsi:type="string">Exto_CustomerCard/js/card/data</item>
-                                        <item name="template" xsi:type="string">Exto_CustomerCard/card/data/behaviour</item>
-                                        <item name="card" xsi:type="string">customer-card-modal.card</item>
-                                        <item name="displayArea" xsi:type="string">behaviour</item>
-                                    </item>
-                                </item>
-                            </item>
-                        </item>
-                    </item>
-                    <item name="customer-card.data.provider" xsi:type="array">
-                        <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
-                        <item name="update_url" xsi:type="string">url</item>
-                        <item name="provider" xsi:type="string">customer-card-list.provider</item>
-                        <item name="storageConfig" xsi:type="array">
-                            <item name="cacheRequests" xsi:type="boolean">false</item>
-                        </item>
-                    </item>
-                    <item name="customer-card-button" xsi:type="array">
-                        <item name="component" xsi:type="string">Exto_CustomerCard/js/card/button</item>
-                        <item name="modal" xsi:type="string">customer-card-modal</item>
-                        <item name="card" xsi:type="string">customer-card-modal.card</item>
-                    </item>
-                </item>
-            </argument>
-        </arguments>
-    </type>
 </config>
