@@ -4,15 +4,15 @@
  * See COPYING.txt for license details.
  */
 -->
-<div>
-    <span data-bind="i18n: 'Is newsletter subscriber:'"></span>
-    <span data-bind="text: getCardData('data.newsletter.is_subscriber') ? 'Yes' : 'No'"></span>
+<div class="customer-card-modal-item-inner-box">
+    <span data-bind="i18n: 'Is newsletter subscriber:'" class="customer-card-modal-item-inner-title"></span>
+    <span data-bind="text: getCardData('data.newsletter.is_subscriber') ? 'Yes' : 'No'" class="customer-card-modal-item-inner-txt"></span>
 </div>
-<div>
-    <span data-bind="i18n: 'Coupon used:'"></span>
-    <span data-bind="text: getCardData('data.sales_rule.used_coupon_count')"></span>
+<div class="customer-card-modal-item-inner-box">
+    <span data-bind="i18n: 'Coupon used:'" class="customer-card-modal-item-inner-title"></span>
+    <span data-bind="text: getCardData('data.sales_rule.used_coupon_count')" class="customer-card-modal-item-inner-txt"></span>
 </div>
-<div>
-    <span data-bind="i18n: 'Number of orders made with promo rules applied:'"></span>
-    <span data-bind="text: getCardData('data.sales_rule.promo_orders_count')"></span>
+<div class="customer-card-modal-item-inner-box">
+    <span data-bind="i18n: 'Number of orders made with promo rules applied:'" class="customer-card-modal-item-inner-title"></span>
+    <span data-bind="text: getCardData('data.sales_rule.promo_orders_count')" class="customer-card-modal-item-inner-txt"></span>
 </div>
