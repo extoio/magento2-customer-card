@@ -63,6 +63,26 @@
                     &:nth-child(even) {
                        background-color: @card_background_primary;
                     }
+
+                    &-list {
+                        list-style-type: none;
+
+                        &-item {
+                            padding: 0 0 0.5rem;
+                            .flex;
+                            width: 100%;
+                            .flex-direction-column;
+                            .justify-content-start;
+
+                            &:first-child {
+                                margin-top: 0.5rem
+                            }
+
+                            &-el {
+                                width: 100%;
+                            }
+                        }
+                    }
                 }
 
                 &-title {
@@ -95,6 +115,53 @@
 
             &:nth-child(odd) {
                 margin-right: 2%;
+            }
+
+            &-inner-box {
+
+                &.column-item {
+                    .flex-direction-column;
+                    .justify-content-between;
+
+                    .customer-card-modal-item-inner-txt {
+                        width: 100%;
+                    }
+                }
+
+                &-list {
+                        list-style-type: none;
+
+                    &-item {
+                        padding: 0rem 0 0.5rem;
+                        .flex;
+                        .flex-direction-row;
+                        width: 100%;
+                        .justify-content-between;
+
+                        &:first-child {
+                            margin-top: 0.5rem
+                        }
+
+                        &-el {
+                            width: 33.3333%;
+
+                            &.cn {
+                                text-align: center;
+                            }
+
+                            &.last {
+                                text-align: right;
+                            }
+                        }
+
+                        &.four-column {
+
+                            &-el {
+                                width: 25%;
+                            }
+                        }
+                    }
+                }
             }
         }
     }

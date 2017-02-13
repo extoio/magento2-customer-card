@@ -4,20 +4,20 @@
  * See COPYING.txt for license details.
  */
 -->
-<div class="customer-card-modal-item-inner-box">
+<div class="customer-card-modal-item-inner-box column-item">
     <span data-bind="i18n: 'Items in wishlist:'" class="customer-card-modal-item-inner-title"></span>
     <div class="customer-card-modal-item-inner-txt">
         <!-- ko if: hasWishlistItems() -->
-        <ul>
+        <ul class="customer-card-modal-item-inner-box-list">
             <!-- ko foreach: { data:  getWishlistItems(), as: 'item' } -->
-            <li>
+            <li class="customer-card-modal-item-inner-box-list-item">
                 <a data-bind="
                     attr: {
                         href: item.product.url
                     },
-                    text: item.product.name"></a>
-                <span data-bind="text: item.qty"></span>
-                <span data-bind="text: item.added_at"></span>
+                    text: item.product.name" class="customer-card-modal-item-inner-box-list-item-el"></a>
+                <span data-bind="text: item.qty" class="customer-card-modal-item-inner-box-list-item-el cn"></span>
+                <span data-bind="text: item.added_at" class="customer-card-modal-item-inner-box-list-item-el last"></span>
             </li>
             <!-- /ko -->
         </ul>

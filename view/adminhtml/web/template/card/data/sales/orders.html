@@ -11,21 +11,21 @@
         (<span data-bind="text: getCardData('data.sales.total.all.total')"></span>)
     </div>
 </div>
-<div class="customer-card-modal-item-inner-box">
+<div class="customer-card-modal-item-inner-box column-item">
     <span data-bind="i18n: 'Orders:'" class="customer-card-modal-item-inner-title"></span>
     <div class="customer-card-modal-item-inner-txt">
         <!-- ko if: getCardData('data.sales.orders') && getCardData('data.sales.orders').length -->
-        <ul>
+        <ul class="customer-card-modal-item-inner-box-list">
             <!-- ko foreach: { data:  getCardData('data.sales.orders'), as: 'order' } -->
-            <li>
+            <li class="customer-card-modal-item-inner-box-list-item four-column">
                 <a data-bind="
                     attr: {
                         href: order.url
                     },
-                    text: order.increment_id"></a>
-                <span data-bind="text: order.created_at"></span>
-                <span data-bind="text: order.status"></span>
-                <span data-bind="text: order.total"></span>
+                    text: order.increment_id" class="customer-card-modal-item-inner-box-list-item-el"></a>
+                <span data-bind="text: order.created_at" class="customer-card-modal-item-inner-box-list-item-el cn"></span>
+                <span data-bind="text: order.status" class="customer-card-modal-item-inner-box-list-item-el cn"></span>
+                <span data-bind="text: order.total" class="customer-card-modal-item-inner-box-list-item-el last"></span>
             </li>
             <!-- /ko -->
         </ul>
