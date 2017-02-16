@@ -4,15 +4,15 @@
  * See COPYING.txt for license details.
  */
 -->
-<div>
-    <span data-bind="i18n: 'Last 30 days:'"></span>
-    <span data-bind="text: getCardData('data.sales.total.monthly.total')"></span>
+<div class="customer-card-modal-item-inner-box">
+    <span data-bind="i18n: 'Last 30 days:'" class="customer-card-modal-item-inner-title"></span>
+    <span data-bind="text: getCardData('data.sales.total.monthly.total')" class="customer-card-modal-item-inner-txt"></span>
 </div>
-<div>
-    <span data-bind="i18n: 'Last 360 days:'"></span>
-    <span data-bind="text: getCardData('data.sales.total.yearly.total')"></span>
+<div class="customer-card-modal-item-inner-box">
+    <span data-bind="i18n: 'Last 360 days:'" class="customer-card-modal-item-inner-title"></span>
+    <span data-bind="text: getCardData('data.sales.total.yearly.total')" class="customer-card-modal-item-inner-txt"></span>
 </div>
-<div>
-    <span data-bind="i18n: 'Lifetime:'"></span>
-    <span data-bind="text: getCardData('data.sales.total.all.total')"></span>
+<div class="customer-card-modal-item-inner-box">
+    <span data-bind="i18n: 'Lifetime:'" class="customer-card-modal-item-inner-title"></span>
+    <span data-bind="text: getCardData('data.sales.total.all.total')" class="customer-card-modal-item-inner-txt"></span>
 </div>

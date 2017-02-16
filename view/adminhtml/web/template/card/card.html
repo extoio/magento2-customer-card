@@ -10,20 +10,22 @@
     </div>
 </div>
 <div data-bind="visible: !isLoading()">
-    <div>
-        <!-- ko foreach: getRegion('header') -->
-            <!-- ko template: getTemplate() --><!-- /ko -->
-        <!-- /ko -->
-    </div>
-    <!-- ko foreach: { data: getTabs(), as: 'tab' } -->
-    <div>
-        <span data-bind="text: tab.title"></span>
-        <div>
-            <!-- ko foreach: $parent.getRegion(tab.code) -->
-                <!-- ko template: getTemplate() --><!-- /ko -->
-            <!-- /ko -->
-        </div>
-    </div>
+
+    <!-- ko foreach: getRegion('header') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
     <!-- /ko -->
+
+    <div class="customer-card-modal-item-list">
+    <!-- ko foreach: { data: getTabs(), as: 'tab' } -->
+        <div class="customer-card-modal-item">
+            <span class="customer-card-modal-item-title" data-bind="text: tab.title"></span>
+            <div class="customer-card-modal-item-inner">
+                <!-- ko foreach: $parent.getRegion(tab.code) -->
+                    <!-- ko template: getTemplate() --><!-- /ko -->
+                <!-- /ko -->
+            </div>
+        </div>
+    <!-- /ko -->
+    </div>
 </div>
 

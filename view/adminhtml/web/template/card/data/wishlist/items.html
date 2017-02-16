@@ -4,24 +4,26 @@
  * See COPYING.txt for license details.
  */
 -->
-<div>
-    <span data-bind="i18n: 'Items in wishlist:'"></span>
-    <!-- ko if: hasWishlistItems() -->
-    <ul>
-        <!-- ko foreach: { data:  getWishlistItems(), as: 'item' } -->
-        <li>
-            <a data-bind="
-                attr: {
-                    href: item.product.url
-                },
-                text: item.product.name"></a>
-            <span data-bind="text: item.qty"></span>
-            <span data-bind="text: item.added_at"></span>
-        </li>
+<div class="customer-card-modal-item-inner-box column-item">
+    <span data-bind="i18n: 'Items in wishlist:'" class="customer-card-modal-item-inner-title"></span>
+    <div class="customer-card-modal-item-inner-txt">
+        <!-- ko if: hasWishlistItems() -->
+        <ul class="customer-card-modal-item-inner-box-list">
+            <!-- ko foreach: { data:  getWishlistItems(), as: 'item' } -->
+            <li class="customer-card-modal-item-inner-box-list-item">
+                <a data-bind="
+                    attr: {
+                        href: item.product.url
+                    },
+                    text: item.product.name" class="customer-card-modal-item-inner-box-list-item-el"></a>
+                <span data-bind="text: item.qty" class="customer-card-modal-item-inner-box-list-item-el cn"></span>
+                <span data-bind="text: item.added_at" class="customer-card-modal-item-inner-box-list-item-el last"></span>
+            </li>
+            <!-- /ko -->
+        </ul>
         <!-- /ko -->
-    </ul>
-    <!-- /ko -->
-    <!-- ko ifnot: hasWishlistItems() -->
-    <span data-bind="i18n: 'None'"></span>
-    <!-- /ko -->
+        <!-- ko ifnot: hasWishlistItems() -->
+        <span data-bind="i18n: 'None'"></span>
+        <!-- /ko -->
+    </div>
 </div>

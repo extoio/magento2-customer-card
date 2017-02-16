@@ -4,30 +4,34 @@
  * See COPYING.txt for license details.
  */
 -->
-<div>
-    <span data-bind="i18n: 'Orders total:'"></span>
-    <span data-bind="text: getCardData('data.sales.total.all.count')"></span>
-    (<span data-bind="text: getCardData('data.sales.total.all.total')"></span>)
+<div class="customer-card-modal-item-inner-box">
+    <span data-bind="i18n: 'Orders total:'" class="customer-card-modal-item-inner-title"></span>
+    <div class="customer-card-modal-item-inner-txt">
+        <span data-bind="text: getCardData('data.sales.total.all.count')"></span>
+        (<span data-bind="text: getCardData('data.sales.total.all.total')"></span>)
+    </div>
 </div>
-<div>
-    <span data-bind="i18n: 'Orders:'"></span>
-    <!-- ko if: getCardData('data.sales.orders') && getCardData('data.sales.orders').length -->
-    <ul>
-        <!-- ko foreach: { data:  getCardData('data.sales.orders'), as: 'order' } -->
-        <li>
-            <a data-bind="
-                attr: {
-                    href: order.url
-                },
-                text: order.increment_id"></a>
-            <span data-bind="text: order.created_at"></span>
-            <span data-bind="text: order.status"></span>
-            <span data-bind="text: order.total"></span>
-        </li>
+<div class="customer-card-modal-item-inner-box column-item">
+    <span data-bind="i18n: 'Orders:'" class="customer-card-modal-item-inner-title"></span>
+    <div class="customer-card-modal-item-inner-txt">
+        <!-- ko if: getCardData('data.sales.orders') && getCardData('data.sales.orders').length -->
+        <ul class="customer-card-modal-item-inner-box-list">
+            <!-- ko foreach: { data:  getCardData('data.sales.orders'), as: 'order' } -->
+            <li class="customer-card-modal-item-inner-box-list-item four-column">
+                <a data-bind="
+                    attr: {
+                        href: order.url
+                    },
+                    text: order.increment_id" class="customer-card-modal-item-inner-box-list-item-el"></a>
+                <span data-bind="text: order.created_at" class="customer-card-modal-item-inner-box-list-item-el cn"></span>
+                <span data-bind="text: order.status" class="customer-card-modal-item-inner-box-list-item-el cn"></span>
+                <span data-bind="text: order.total" class="customer-card-modal-item-inner-box-list-item-el last"></span>
+            </li>
+            <!-- /ko -->
+        </ul>
         <!-- /ko -->
-    </ul>
-    <!-- /ko -->
-    <!-- ko ifnot: getCardData('data.sales.orders') && getCardData('data.sales.orders').length -->
-    <span data-bind="i18n: 'None'"></span>
-    <!-- /ko -->
+        <!-- ko ifnot: getCardData('data.sales.orders') && getCardData('data.sales.orders').length -->
+        <span data-bind="i18n: 'None'"></span>
+        <!-- /ko -->
+    </div>
 </div>
