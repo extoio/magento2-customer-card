@@ -1,6 +1,6 @@
 #Exto CustomerCard
 ##Overview
-![Overview](http://imgur.com/N4Bpeud.gif)
+![Overview](http://i.imgur.com/Ksjb5fz.gif)
 
 ##How to extend by custom data
 *Vendor\Module\Model\Card\DataProvider\CustomDataProvider.php*
